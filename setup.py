@@ -9,7 +9,9 @@ setup(
     long_description='file: README.md',
     long_description_content_type='text/markdown',
     url='https://github.com/jiwoong-choi/poptorchlab',
-    project_urls='Bug Tracker = https://github.com/jiwoong-choi/poptorchlab/issues',
+    project_urls={
+        'Bug Tracker': 'https://github.com/jiwoong-choi/poptorchlab/issues'
+    },
     packages=['poptorchlab'],
     zip_safe=False,
     install_requires=['torch==1.10.0+cpu'],
