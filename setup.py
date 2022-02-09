@@ -7,15 +7,15 @@ if POPLAR_SDK_ENABLED is None:
 
 with open('requirements.txt', 'r') as f:
     install_requires = f.readlines()
-
+    version = '2.4.0'
     poptorch_wheel = [*map(
-        lambda x: 'file://' + x,
+        lambda x: f'file://{x}#egg={version}',
         filter(lambda x: 'poptorch' in x, os.listdir(os.path.join(POPLAR_SDK_ENABLED, '..')))
     )]
 
     setup(
         name='poptorchlab',
-        version='2.4.0',
+        version=version,
         author='Jiwoong Choi',
         author_email='jiwoongc@graphcore.ai',
         description='PopTorchLab - making experiments with PopTorch easier',
