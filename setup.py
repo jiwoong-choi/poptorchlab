@@ -12,6 +12,7 @@ with open('requirements.txt', 'r') as f:
         lambda x: f'file://{x}#egg={version}',
         filter(lambda x: 'poptorch' in x, os.listdir(os.path.join(POPLAR_SDK_ENABLED, '..')))
     )]
+    print(f'Configured PopTorch path: {poptorch_wheel[0]}')
 
     setup(
         name='poptorchlab',
