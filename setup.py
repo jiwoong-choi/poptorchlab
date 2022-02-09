@@ -9,7 +9,7 @@ with open('requirements.txt', 'r') as f:
     install_requires = f.readlines()
     version = '2.4.0'
     poptorch_wheel = [*map(
-        lambda x: f'file://{x}#egg={version}',
+        lambda x: os.path.join(POPLAR_SDK_ENABLED, f'file://{x}#egg={version}'),
         filter(lambda x: 'poptorch' in x, os.listdir(os.path.join(POPLAR_SDK_ENABLED, '..')))
     )]
     print(f'Configured PopTorch path: {poptorch_wheel[0]}')
