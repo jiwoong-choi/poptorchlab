@@ -76,9 +76,9 @@ class ArgumentParser(argparse.ArgumentParser):
                           help='Log level for standard python logging.')
 
         basic_options = self.add_argument_group('PopTorch Options (poptorch.Options)')
-        basic_options.add_argument('--anchor-mode', choices=choices_from(poptorch.AnchorMode),
+        basic_options.add_argument('--output-mode', choices=choices_from(poptorch.OutputMode),
                                    help='Specify which data to return from a model.'
-                                        f' [See {get_docs_url(poptorch.Options.anchorMode)}]')
+                                        f' [See {get_docs_url(poptorch.Options.outputMode)}]')
         basic_options.add_argument('--auto-round-num-ipus', action='store_true',
                                    help='Round up the number of IPUs used automatically: the number of IPUs requested must be a power of 2. '
                                         'If you want to request the number of IPUs other than a power of 2, you will need this option.'

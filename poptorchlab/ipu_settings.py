@@ -35,8 +35,8 @@ def retrieve_tensor_location_settings(map: dict):
 
 
 def inference_settings(opts: poptorch.Options, args: argparse.Namespace):
-    if args.anchor_mode is not None:
-        opts.anchorMode(getattr(poptorch.AnchorMode, args.anchor_mode))
+    if args.output_mode is not None:
+        opts.outputMode(getattr(poptorch.OutputMode, args.output_mode))
     opts.autoRoundNumIPUs(args.auto_round_num_ipus)
     if args.connection_type is not None:
         opts.connectionType(getattr(poptorch.ConnectionType, args.connection_type))
