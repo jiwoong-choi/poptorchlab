@@ -2,14 +2,13 @@ from setuptools import setup
 import os
 import pip
 
+
 POPLAR_SDK_ENABLED = os.environ.get('POPLAR_SDK_ENABLED', default=None)
 if POPLAR_SDK_ENABLED is None:
     raise Exception('Poplar SDK must be enabled in order to install poptorchlab')
 
 with open('requirements.txt', 'r') as f:
     install_requires = f.readlines()
-
-    pip.main(['install', os.path.join(POPLAR_SDK_ENABLED, '..', 'poptorch*.whl')])
 
     setup(
         name='poptorchlab',
@@ -25,5 +24,5 @@ with open('requirements.txt', 'r') as f:
         },
         packages=['poptorchlab'],
         zip_safe=False,
-        install_requires=install_requires
+        install_requires=install_requires + [*filter(lambda x: 'poptorch' in x, os.listdir(os.path.join(POPLAR_SDK_ENABLED, '..')))]
     )
